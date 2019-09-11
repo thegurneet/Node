@@ -16,8 +16,6 @@ http.createServer((request,serverRes)=>{
     }
 
 
-
-
 }).listen(3000,()=>{
     console.log('Server Sprinting')
 });
