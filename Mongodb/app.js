@@ -10,7 +10,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
 
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 mongoose.Promise = global.Promise; 
@@ -25,30 +25,41 @@ mongoose.connection.once('open' , ()=>{
 })
 
 
-app.get('/', function(req,res){
+app.get('/', (req,res)=>{
     res.send(' Connected ')
 })
 
-app.post('/addUser', (req,res)=>{
+app.post('/users', (req,res)=>{
         console.log('hit')
     const newUser = new User({
         firstName : req.body.firstName,
         lastName :  req.body.lastName,
-        isActive:  req.body.isActive
+        isActive :  req.body.isActive
         
-    });
-
-    newUser.save().then(savedUser=>{
-        res.send('saved user');
-    }).catch(err=>{
-        req.status(404).send('User has not been saved')
     })
-
-
+    newUser.save().then(savedUser=>{
+        res.send('USER SAVED')
+    })
 });
 
 
+app.get('/getUser' , (req,res)=>{
+    User.find({}).then(users=>{
+        res.send(users)
+    })
+})
 
+app.get('/getUserById/:id', (req,res)=>{
+    User.findById({_id: req.params.id}).then(user=>{
+        res.send(user)
+    })
+})
+
+app.delete('/deleteUser/:id',(req,res)=>{
+    User.findByIdAndRemove({_id: req.params.id}).then(
+        res.send(`User removed`)
+    ).catch(err=>console.log(err));
+})
 
 
 
