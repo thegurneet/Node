@@ -18,10 +18,10 @@ const newUser = new User({
     isActive: 1
 });
 
-newUser.save(function(err,data){
-    if(err) { 
-        return err; 
-    } else { 
-        console.log( ' Data saved : ' + data);
-    }
-});
+// newUser.save(function(err,data){
+//     if(err) { 
+//         return err; 
+//     } else { 
+//         console.log( ' Data saved : ' + data);
+//     }
+// });
