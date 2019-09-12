@@ -30,12 +30,29 @@ app.post('/register',(req,res)=>{
             newUser.save().then(savedUser=>{
                 res.send(" User Saved : " + newUser)
             }).catch(err=>{
-                res.send('USer was not saved because... : ' + err)
+                res.send('USER was not saved because... : ' + err)
             })
 
         })
     })
 
+})
+
+
+app.post('/login', (req,res)=>{
+    User.findOne({email: req.body.email}).then(user=>{
+        if(user) { 
+            bcrypt.compare(req.body.password, user.password, (err,matched)=>{
+
+                if(err) return err;
+                if(matched){
+                    res.send('USER Was able to login')
+                }else{ 
+                    res.send('User not able to login')
+                }
+            })
+        }
+    })
 })
 
 
