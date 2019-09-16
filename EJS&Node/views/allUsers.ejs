@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Users</title>
+</head>
+<body>
+    <main>
+        <h1>All Users</h1>
+        <% if(prods.length > 0) {  %>
+
+            <div>
+                <ul>
+                <% for ( let user of prods) { %>
+                    <li><%= user.name %></li>
+               <% } %>
+                </ul>
+            </div>
+
+       <% } %>
+
+    </main>
+</body>
+</html>
