@@ -1,0 +1,22 @@
+
+    ************************************
+            MODEL VIEW CONTROLLER       
+    ************************************
+
+Separation of Concerns  
+        - Making Sure that different part of your code do different things 
+        and you clearly know which part is responsible for what. 
+
+
+MODEL           
+    - Represents your data in your code
+    - Work with your data (e.g : Save, fetch, delete)
+
+VIEW
+    - What the user sees
+    - Decoupled from your application code
+
+CONTROLLER
+    - Connectiong your MODELs and your VIEWs
+    - Contains the "in-between" logic. 
+    - Routes. 
