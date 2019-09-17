@@ -11,6 +11,10 @@ Separation of Concerns
 MODEL           
     - Represents your data in your code
     - Work with your data (e.g : Save, fetch, delete)
+    - Responsible for representing your data 
+    - Responsible for managing data ( Saving, fetching, ...)
+    - Doesnt matter if you manage data in memory, files, databases..
+    - Contains data-related logic. 
 
 VIEW
     - What the user sees
