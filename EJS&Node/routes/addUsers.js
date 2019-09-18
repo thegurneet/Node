@@ -6,18 +6,15 @@ const rootDir = path.dirname(process.mainModule.filename);
 
 const router = express.Router(); 
 
+const userController = require('../controller/userController')
 
-const users = []; 
 
-router.get('/addUser', (req,res)=>{
-    res.render('addUser')
-}); 
 
-router.post('/addUser', (req,res,next)=>{
-    users.push({name: req.body.name})
-    res.redirect('/');
-    console.log(users)
-}); 
+
+//add User  /user/addUser => POST
+router.post('/addUser', userController.addUser)
+
+//Set addUser View 
+router.get('/addUser', userController.getView)
 
 exports.routes = router; 
-exports.users = users;
